@@ -5,7 +5,9 @@ export const handlers = [
   rest.get('*/users', (req, res, ctx) => {
     // If authenticated, return a mocked user details
     return res(
-      ctx.status(200),
+      // comment out next line to check OK behaviour
+      ctx.status(400),
+      ctx.delay(1000),
       ctx.json([
         {
           id: 1,
