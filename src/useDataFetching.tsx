@@ -17,10 +17,11 @@ export const useDataFetching = (apiUrl: string) => {
       })
       .then((data) => {
         setData(data);
-        setIsLoading(false);
       })
       .catch((error) => {
         setHasError(true);
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   }, [apiUrl]);
