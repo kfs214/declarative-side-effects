@@ -1,22 +1,25 @@
-# Getting Started with Create React App
+# declarative-side-effects
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a proof of concept to demonstrate how to build a custom hook for handling side effects declaratively, instead of using libraries like SWR.\
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Purpose
+## How to Run the Project
 
-Proof of Concept to build custom hook to handle side effects declartive in stead of libraries like SWR.
+To run the project locally, you need to have `Node.js` and `npm` installed on your machine. Then, follow these steps:
 
-## Available Scripts
+1. Clone this repository or download the zip file.
+2. Navigate to the project directory and run `npm install` to install the dependencies.
+3. Run `npm start` to start the development server.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-In the project directory, you can run:
+The app will reload automatically if you make any changes to the code. You will also see any lint errors in the console.
 
-### `npm start`
+## How to Mock the API Response
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The app uses [Mock Service Worker] to intercept and mock the API requests. You can find the mock handlers in [src/mocks/handlers.ts](./src/mocks/handlers.ts).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- To mock a successful response, comment out `ctx.status(400),` in the handler function.
+- To mock an error response, uncomment `ctx.status(400),` in the handler function.
 
 ## Learn More
 

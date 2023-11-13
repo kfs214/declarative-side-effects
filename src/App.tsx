@@ -1,30 +1,10 @@
 import { useDataFetching } from './useDataFetching';
-
-type Users = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-};
+import { User } from './types';
 
 export const App = () => {
+  // comment/uncomment 'ctx.status(400)' in src\mocks\handlers.ts
+  // to toggle ok and error response.
+
   const { data, isLoading, hasError } = useDataFetching(
     'https://jsonplaceholder.typicode.com/users'
   );
@@ -34,7 +14,7 @@ export const App = () => {
 
   return (
     <ul>
-      {(data as Users[]).map((user) => (
+      {(data as User[]).map((user) => (
         <li key={user.id}>{user.name}</li>
       ))}
     </ul>

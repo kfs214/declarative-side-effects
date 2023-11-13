@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useDataFetching = (apiUrl: string) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<unknown[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -18,7 +18,7 @@ export const useDataFetching = (apiUrl: string) => {
       .then((data) => {
         setData(data);
       })
-      .catch((error) => {
+      .catch(() => {
         setHasError(true);
       })
       .finally(() => {
